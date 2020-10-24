@@ -1,0 +1,2 @@
+beginner_tutorials
+-DCATKIN_DEVEL_PREFIX=/home/cristina/catkin_ws2/devel -DCMAKE_INSTALL_PREFIX=/home/cristina/catkin_ws2/install -G Unix Makefiles
