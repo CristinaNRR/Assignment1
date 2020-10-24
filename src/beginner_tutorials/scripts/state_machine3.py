@@ -9,6 +9,7 @@ import smach_ros
 import time
 import random
 from beginner_tutorials.msg import Num
+import random
 
 # INSTALLATION
 # - create ROS package in your workspace:
@@ -40,6 +41,7 @@ def user_action(data):
 class Normal(smach.State):
     def __init__(self):
         self.var='FALSE'
+	self.gesture=[0,0]
         rospy.Subscriber('chatter', Num, self.callback)
         # initialisation function, it should not wait
         smach.State.__init__(self, 
@@ -49,26 +51,59 @@ class Normal(smach.State):
     def execute(self,userdata):
 	time.sleep(2)
         # function called when exiting from the node, it can be blacking
+	
         print (self.var)
+	pub = rospy.Publisher('targetPosition', Num)
         rospy.loginfo('Executing state NORMAL ')
 	if(self.var=='TRUE'):
-		return user_action('PLAY')#i activate the play state
+		#i send the robot the gesture and person position and activate the play state
+
+                msg= Num()
+		#i decide this is the person position
+		msg.num= [5,5] 
+		pub.publish(msg)
+		rospy.loginfo(msg)		
+		msg.num= self.gesture
+                pub.publish(msg)
+		rospy.loginfo(msg)
+		msg.num= [5,5] 
+                pub.publish(msg)
+		rospy.loginfo(msg)
+
+                pub.publish(msg)
+		return user_action('PLAY')#I activate the play state
 	else:
-        
-        	return user_action('RANDOM')
+        	#send the robot 2 random position
+		randomlist1 = []
+		for i in range(0,2):
+			n = random.randint(1,10)
+			randomlist1.append(n)
+		print(randomlist1)
+		pub.publish(randomlist1)
+
+		randomlist2 = []
+		for i in range(0,2):
+			n = random.randint(1,10)
+			randomlist2.append(n)
+		print(randomlist2)
+		pub.publish(randomlist2)
+        	return user_action('Random')
 
     def callback(self,data):
    
     	rospy.loginfo('I heard %s', data.num)
-        if(data.num == (0,0,0,0,0,0)):
+
+        if(data.num == (0,0)):
         	self.var = 'FALSE'
         else:
     		self.var = 'TRUE' #ask the normal state to activate the play state
+		self.gesture = data.num
         print(self.var)
 
     
 
-# define state Locked
+# define state Sleep
+#the robot goes to a predifined position and stays there for a certain time. After that it goes to the normal behavour
 class Sleep(smach.State):
     def __init__(self):
         #self.var
@@ -79,13 +114,18 @@ class Sleep(smach.State):
         self.rate = rospy.Rate(200)  # Loop at 200 Hz
 
     def execute(self,userdata):
-        time.sleep(2)
+        rospy.loginfo('Executing state SLEEP')
         # simulate that we have to get 5 data samples to compute the outcome
         while not rospy.is_shutdown():  
-          
-     
-        	rospy.loginfo('Executing state SLEEP')
-		
+		i=0
+                #call the node motion and pass the position target where i want to go
+		pub = rospy.Publisher('targetPosition', Num)
+                msg= Num()
+		msg.num= [2,2]
+		rospy.loginfo(msg)
+                pub.publish(msg)
+		#add a sleep to make the robot remain in the sleep state for a certain time
+		time.sleep(2)
         
                 return user_action('NORMAL')
                
@@ -99,8 +139,6 @@ class Play(smach.State):
         smach.State.__init__(self, 
                              outcomes=['play','sleep', 'normal'])
                           
-       
-        self.rate = rospy.Rate(200)  # Loop at 200 Hz
 
     def execute(self,userdata):
         time.sleep(2)

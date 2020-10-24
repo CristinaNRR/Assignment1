@@ -44,19 +44,18 @@ def talker():
     pub = rospy.Publisher('chatter', Num)
     rospy.init_node('talker', anonymous=True)
     msg= Num()
-    msg.num = [0,0]
     rate = rospy.Rate(0.5) # 10hz
     i=1
     while not rospy.is_shutdown():
 	#each 10 iteration I decide that i want to play and send an array of no-zero values
 	if(i==10):
-		msg.num= [1,2,3,4,5,6]
+		msg.num= [1,2]
 		rospy.loginfo(msg)
                 pub.publish(msg)
 		i= 0
                
         else :
-		msg.num = [0,0,0,0,0,0]
+		msg.num = [0,0]
                 rospy.loginfo(msg)
                 pub.publish(msg)
 	i = i+1
