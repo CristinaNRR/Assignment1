@@ -39,23 +39,28 @@
 import rospy
 from std_msgs.msg import String
 from beginner_tutorials.msg import Num
+import random
+import time
 
 def talker():
     pub = rospy.Publisher('chatter', Num)
     rospy.init_node('talker', anonymous=True)
     msg= Num()
-    rate = rospy.Rate(0.5) # 10hz
-    i=1
+    #rate = rospy.Rate(0.5) # 10hz
+  
     while not rospy.is_shutdown():
 	#each 10 iteration I decide that i want to play and send the gesture position
-	if(i==5):
-		msg.num= [1,2]
-		rospy.loginfo(msg)
-                pub.publish(msg)
-		i= 0
-               
-	i = i+1
-	rate.sleep()
+	
+
+		randomGesture = []
+		for i in range(0,2):
+			n = random.randint(1,10)
+			randomGesture.append(n)
+		pub.publish(randomGesture)
+     		print(randomGesture)   
+		
+	
+		time.sleep(5)
                 
 
 

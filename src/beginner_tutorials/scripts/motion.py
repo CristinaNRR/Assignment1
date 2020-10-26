@@ -2,12 +2,13 @@
 
 
 import rospy
+from std_msgs.msg import String
 
 from beginner_tutorials.msg import Num
 
-#everytime the node motion receive a position from the state machine it sends a null array to the node control.(It should send via points)
+#when target position are received, the node sends a via point to the control node
 def callback(data):
-    rospy.loginfo('I heard %s', data.num)
+    rospy.loginfo('received target position: %s', data.num)
 
     pub = rospy.Publisher('viaPoint', Num)
     msg= Num()
@@ -15,6 +16,10 @@ def callback(data):
     pub.publish(msg)
     rospy.loginfo(msg)
 
+def callback2(data):
+
+    rospy.loginfo('%s', data.data)
+  
 def motion():
 
     # In ROS, nodes are uniquely named. If two nodes with the same
@@ -24,9 +29,13 @@ def motion():
     # run simultaneously.
     rospy.init_node('motion', anonymous=True)
 
+    #listen for goalPositions coming from the state machine
     rospy.Subscriber('targetPosition', Num, callback)
 
+    #control node return a flag when the target pose is reached
+    rospy.Subscriber('flag', String, callback2)
 
+   
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

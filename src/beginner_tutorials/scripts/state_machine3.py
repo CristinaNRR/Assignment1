@@ -70,7 +70,6 @@ class Normal(smach.State):
                 pub.publish(msg)
 		rospy.loginfo(msg)
 
-                pub.publish(msg)
 		self.var='FALSE'
 		return user_action('PLAY')#I activate the play state
 	else:
@@ -94,9 +93,7 @@ class Normal(smach.State):
    
     	rospy.loginfo('I heard %s', data.num)
 
-       # if(data.num == (0,0)):
-        #	self.var = 'FALSE'
-      
+   
 	#next time i enter the normal state i want the play state to be activated
     	self.var = 'TRUE' 
 	self.gesture = data.num
