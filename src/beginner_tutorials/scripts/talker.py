@@ -47,17 +47,13 @@ def talker():
     rate = rospy.Rate(0.5) # 10hz
     i=1
     while not rospy.is_shutdown():
-	#each 10 iteration I decide that i want to play and send an array of no-zero values
-	if(i==10):
+	#each 10 iteration I decide that i want to play and send the gesture position
+	if(i==5):
 		msg.num= [1,2]
 		rospy.loginfo(msg)
                 pub.publish(msg)
 		i= 0
                
-        else :
-		msg.num = [0,0]
-                rospy.loginfo(msg)
-                pub.publish(msg)
 	i = i+1
 	rate.sleep()
                 

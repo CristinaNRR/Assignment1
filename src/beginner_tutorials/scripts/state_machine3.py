@@ -50,10 +50,10 @@ class Normal(smach.State):
 
     def execute(self,userdata):
 	time.sleep(2)
+      	pub = rospy.Publisher('targetPosition', Num)
         # function called when exiting from the node, it can be blacking
 	
         print (self.var)
-	pub = rospy.Publisher('targetPosition', Num)
         rospy.loginfo('Executing state NORMAL ')
 	if(self.var=='TRUE'):
 		#i send the robot the gesture and person position and activate the play state
@@ -71,6 +71,7 @@ class Normal(smach.State):
 		rospy.loginfo(msg)
 
                 pub.publish(msg)
+		self.var='FALSE'
 		return user_action('PLAY')#I activate the play state
 	else:
         	#send the robot 2 random position
@@ -93,11 +94,12 @@ class Normal(smach.State):
    
     	rospy.loginfo('I heard %s', data.num)
 
-        if(data.num == (0,0)):
-        	self.var = 'FALSE'
-        else:
-    		self.var = 'TRUE' #ask the normal state to activate the play state
-		self.gesture = data.num
+       # if(data.num == (0,0)):
+        #	self.var = 'FALSE'
+      
+	#next time i enter the normal state i want the play state to be activated
+    	self.var = 'TRUE' 
+	self.gesture = data.num
         print(self.var)
 
     
@@ -109,17 +111,18 @@ class Sleep(smach.State):
         #self.var
         smach.State.__init__(self, 
                              outcomes=['play','sleep', 'normal'])
-                          
+
        
         self.rate = rospy.Rate(200)  # Loop at 200 Hz
 
     def execute(self,userdata):
         rospy.loginfo('Executing state SLEEP')
+        pub = rospy.Publisher('targetPosition', Num)              
         # simulate that we have to get 5 data samples to compute the outcome
         while not rospy.is_shutdown():  
 		i=0
                 #call the node motion and pass the position target where i want to go
-		pub = rospy.Publisher('targetPosition', Num)
+
                 msg= Num()
 		msg.num= [2,2]
 		rospy.loginfo(msg)
