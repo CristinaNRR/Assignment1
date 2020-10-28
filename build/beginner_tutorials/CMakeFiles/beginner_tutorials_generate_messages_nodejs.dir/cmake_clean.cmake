@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/beginner_tutorials_generate_messages_nodejs"
   "/home/cristina/catkin_ws2/devel/share/gennodejs/ros/beginner_tutorials/msg/Num.js"
-  "/home/cristina/catkin_ws2/devel/share/gennodejs/ros/beginner_tutorials/srv/AddTwoInts.js"
 )
 
 # Per-language clean rules from dependency scanning.

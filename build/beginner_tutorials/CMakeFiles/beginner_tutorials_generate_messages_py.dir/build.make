@@ -54,7 +54,6 @@ CMAKE_BINARY_DIR = /home/cristina/catkin_ws2/build
 include beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py.dir/progress.make
 
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/_Num.py
-beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/__init__.py
 beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/__init__.py
 
@@ -64,26 +63,18 @@ beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py: /home/cri
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG beginner_tutorials/Num"
 	cd /home/cristina/catkin_ws2/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/cristina/catkin_ws2/src/beginner_tutorials/msg/Num.msg -Ibeginner_tutorials:/home/cristina/catkin_ws2/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg
 
-/home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py: /opt/ros/kinetic/lib/genpy/gensrv_py.py
-/home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py: /home/cristina/catkin_ws2/src/beginner_tutorials/srv/AddTwoInts.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV beginner_tutorials/AddTwoInts"
-	cd /home/cristina/catkin_ws2/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/cristina/catkin_ws2/src/beginner_tutorials/srv/AddTwoInts.srv -Ibeginner_tutorials:/home/cristina/catkin_ws2/src/beginner_tutorials/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p beginner_tutorials -o /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv
-
 /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/__init__.py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/_Num.py
-/home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/__init__.py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for beginner_tutorials"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for beginner_tutorials"
 	cd /home/cristina/catkin_ws2/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg --initpy
 
 /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/__init__.py: /opt/ros/kinetic/lib/genpy/genmsg_py.py
 /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/__init__.py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/_Num.py
-/home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/__init__.py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for beginner_tutorials"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cristina/catkin_ws2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python srv __init__.py for beginner_tutorials"
 	cd /home/cristina/catkin_ws2/build/beginner_tutorials && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/kinetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv --initpy
 
 beginner_tutorials_generate_messages_py: beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py
 beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/_Num.py
-beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/_AddTwoInts.py
 beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/msg/__init__.py
 beginner_tutorials_generate_messages_py: /home/cristina/catkin_ws2/devel/lib/python2.7/dist-packages/beginner_tutorials/srv/__init__.py
 beginner_tutorials_generate_messages_py: beginner_tutorials/CMakeFiles/beginner_tutorials_generate_messages_py.dir/build.make

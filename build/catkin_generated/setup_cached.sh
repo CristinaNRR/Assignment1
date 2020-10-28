@@ -7,9 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/cristina/catkin_ws2/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/cristina/catkin_ws2/devel/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/cristina/catkin_ws2/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/cristina/catkin_ws2/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/cristina/catkin_ws2/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/cristina/catkin_ws2/src:$ROS_PACKAGE_PATH"

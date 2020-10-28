@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/cristina/catkin_ws2/src/beginner_tutorials/msg/Num.msg"
-services_str = "/home/cristina/catkin_ws2/src/beginner_tutorials/srv/AddTwoInts.srv"
+services_str = ""
 pkg_name = "beginner_tutorials"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

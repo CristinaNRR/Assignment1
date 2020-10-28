@@ -91,7 +91,7 @@ class Normal(smach.State):
 class Sleep(smach.State):
     def __init__(self):
         smach.State.__init__(self, 
-                             outcomes=['play','sleep', 'normal'])
+                             outcomes=['normal'])
 
 	self.home = [2,2]
 
@@ -116,7 +116,7 @@ class Play(smach.State):
     def __init__(self):
 	
         smach.State.__init__(self, 
-                             outcomes=['play','sleep', 'normal'])
+                             outcomes=['normal'])
                           
 
     def execute(self,userdata):
@@ -147,13 +147,10 @@ class func():
 				             'sleep' : 'SLEEP'})
                                               
         smach.StateMachine.add('PLAY', Play(), 
-                               transitions={'normal':'NORMAL', 
-                                            'play':'PLAY',
-				             'sleep' : 'SLEEP'})
+                               transitions={'normal':'NORMAL' 
+                                             })
 	smach.StateMachine.add('SLEEP', Sleep(), 
-                               transitions={'normal':'NORMAL', 
-                                            'play':'PLAY',
-				             'sleep' : 'SLEEP'})
+                               transitions={'normal':'NORMAL'})
                                
                                
 

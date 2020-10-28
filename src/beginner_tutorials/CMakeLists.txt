@@ -54,10 +54,7 @@ add_message_files(
 )
 
 ## Generate services in the 'srv' folder
-add_service_files(
-  FILES
-  AddTwoInts.srv
-)
+
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -128,27 +125,19 @@ include_directories(
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
-add_dependencies(talker beginner_tutorials_generate_messages_cpp)
+
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/beginner_tutorials_node.cpp)
-add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES})
-add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
-add_executable(add_two_ints_server src/add_two_ints_server.cpp)
-target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
-add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
+
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 # set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
-add_executable(add_two_ints_client src/add_two_ints_client.cpp)
-target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
-add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
+
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
