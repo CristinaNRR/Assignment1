@@ -43,6 +43,18 @@ class Normal(smach.State):
 
         rospy.loginfo('Executing state NORMAL ')
   	time.sleep(3)
+
+	count=0
+	while(count<3):
+        	#send the robot 3 random positions
+		randomlist = []
+		for i in range(0,2):
+			n = random.randint(1,10)
+			randomlist.append(n)
+		rospy.loginfo('sending the random position: %s', randomlist)		
+		pub.publish(randomlist)
+		count= count+1
+	#if we received a gesture position
 	if(self.var=='TRUE'):
 		#send the robot the gesture and person position and activate the play state
 
@@ -57,21 +69,8 @@ class Normal(smach.State):
 		self.var='FALSE'
 		return user_action('PLAY')
 	else:
-        	#send the robot 2 random positions
-		randomlist1 = []
-		for i in range(0,2):
-			n = random.randint(1,10)
-			randomlist1.append(n)
-		rospy.loginfo('sending the random position: %s', randomlist1)		
-		pub.publish(randomlist1)
-
-		randomlist2 = []
-		for i in range(0,2):
-			n = random.randint(1,10)
-			randomlist2.append(n)
-		rospy.loginfo('sending the random position: %s', randomlist2)		
-		pub.publish(randomlist2)
-
+		
+		#activate sleep or normal
         	return user_action('Random')
 
     def callback(self,data):

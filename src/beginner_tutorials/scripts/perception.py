@@ -26,8 +26,8 @@ def perception():
 		pub.publish(randomGesture)
      		print(randomGesture)   
 		
-	
-		time.sleep(15)
+		rand = random.randint(1,15)	
+		time.sleep(rand)
                 
 
 
