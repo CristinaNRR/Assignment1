@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	
+	<node name="control" pkg="beginner_tutorials" type="control.py" output="screen">
+
+	</node>
+
+</launch>

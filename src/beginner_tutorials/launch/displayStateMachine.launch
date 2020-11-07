@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+	
+	<node name="state_machine" pkg="beginner_tutorials" type="state_machine.py" output="screen">
+		<param name="home" value="2,2"/>
+		<param name="person" value="5,5"/>
+	</node>
+
+</launch>

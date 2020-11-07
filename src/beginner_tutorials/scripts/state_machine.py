@@ -32,14 +32,20 @@ class Normal(smach.State):
     def __init__(self):
         self.var='FALSE'
 	self.gesture=[0,0]
-	self.person=[5,5]
+	self.var= rospy.get_param('~person')
+	self.person = []
+	n = int(self.var[0])
+	self.person.append(n)
+	n = int(self.var[2])
+	self.person.append(n)
+        
         rospy.Subscriber('gesture', Num, self.callback)
         smach.State.__init__(self, 
                              outcomes=['play','sleep', 'normal'])
 
 
     def execute(self,userdata):
-      	pub = rospy.Publisher('targetPosition', Num)
+      	pub = rospy.Publisher('targetPosition', Num,queue_size=10)
 
         rospy.loginfo('Executing state NORMAL ')
   	time.sleep(3)
@@ -92,11 +98,18 @@ class Sleep(smach.State):
         smach.State.__init__(self, 
                              outcomes=['normal'])
 
-	self.home = [2,2]
+	#self.home = [1,1]
+	self.var= rospy.get_param('~home')
+	self.home = []
+	n = int(self.var[0])
+	self.home.append(n)
+	n = int(self.var[2])
+	self.home.append(n)
+        
 
     def execute(self,userdata):
         rospy.loginfo('Executing state SLEEP')
-        pub = rospy.Publisher('targetPosition', Num)              
+        pub = rospy.Publisher('targetPosition', Num,queue_size=10) 
         while not rospy.is_shutdown():  
 		
 
@@ -130,7 +143,7 @@ class func():
   def __init__(self):
         
                        
-    rospy.init_node('smach_example_state_machine') 
+    rospy.init_node('state_machine') 
 
   
     # Create a SMACH state machine
