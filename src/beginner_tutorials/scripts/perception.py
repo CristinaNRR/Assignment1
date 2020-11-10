@@ -12,6 +12,7 @@ from beginner_tutorials.msg import Num
 import random
 import time
 
+#send e gesture every tot ms
 def perception():
     pub = rospy.Publisher('gesture', Num)
     rospy.init_node('perception', anonymous=True)

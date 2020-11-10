@@ -32,6 +32,7 @@ class Normal(smach.State):
     def __init__(self):
         self.var='FALSE'
 	self.gesture=[0,0]
+	#get params from the parameter server
 	self.var= rospy.get_param('~person')
 	self.person = []
 	n = int(self.var[0])
@@ -62,9 +63,7 @@ class Normal(smach.State):
 		count= count+1
 	#if we received a gesture position
 	if(self.var=='TRUE'):
-		#send the robot the gesture and person position and activate the play state
-
-                
+		#send the robot the gesture and person position and activate the play state            
 		pub.publish(self.person)
 		rospy.loginfo('sending the person position: %s', self.person)		
                 pub.publish(self.gesture)
@@ -84,21 +83,21 @@ class Normal(smach.State):
     	rospy.loginfo('gesture position: %s', data.num)
 
    
-	#next time it enters the normal state, the play state must be activated
+	#next time we enter the normal state, the play state must be activated
     	self.var = 'TRUE' 
 	self.gesture = data.num
         
 
     
 
-# define state Sleep
+
 #the robot goes to a predifined position and stays there for a certain time. After that it goes to the normal behavour
 class Sleep(smach.State):
     def __init__(self):
         smach.State.__init__(self, 
                              outcomes=['normal'])
 
-	#self.home = [1,1]
+	#get params from the parameter server
 	self.var= rospy.get_param('~home')
 	self.home = []
 	n = int(self.var[0])

@@ -28,7 +28,7 @@ def motion():
     #listen for goalPositions coming from the state machine
     rospy.Subscriber('targetPosition', Num, callback)
 
-    #subscribe to control node that return a flag when the target pose is reached
+    #the control node returns a flag when the target pose is reached
     rospy.Subscriber('flag', String, callback2)
 
    
