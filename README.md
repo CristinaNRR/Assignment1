@@ -14,6 +14,7 @@ The type of messages the node exchange are array of integers(in case of position
 All the source code and the diagrams are contained inside the package beginner_turorials and the nodes inside the folder script.
 The folder launch contains the launch files to run the nodes. I created one launch file for each node since I wanted them to be run into different terminals. Inside the launch file 'displayStateMachine' I also stored the fixed positions in the parameter server(the person location and the home location).
 When we run the nodes, we can see the interaction between them reading from the terminals. In particular in the node behaviour both the robot state and the sequence of robot positions are displayed.
+Inside the folder docs is stored the code documentation generated using Doxygen
 
 During the code developing I made some assumption and simplifications. 
 I considered the robot moving in a 2D environment of dimention 10x10 and I also simplified something about the robot motion. 
