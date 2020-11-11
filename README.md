@@ -1,4 +1,4 @@
-#Assignment1
+# Assignment1
 
 The aim of this project is to implement an architecture that simulates the behavior of a pet interacting with a human. The robot has 3 different possible behaviours(sleep, play, normal); the architecture should handle these behaviors and their transitions according to some specification.
 
